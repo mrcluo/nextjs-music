@@ -1,13 +1,8 @@
-'use client'
-import { useDispatch, useSelector } from 'react-redux'
-import { setContact } from '@/store/slices/bill'
-export default function Home() {
-  const dispatch = useDispatch()
+import React from "react";
+function Home() {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <div>{useSelector((state) => state.bill.contact)}</div>
-      <div onClick={()=>dispatch(setContact(123123))}>点击</div>
-    </div>
-  )
+    <div>开屏动画</div>
+  );
 }
+
+export default React.memo(Home);

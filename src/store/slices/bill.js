@@ -31,5 +31,5 @@ export const BillSlice = createSlice({
   }
 })
 
-export const {setContact, setAddressInfo, setPaymentMethod, setTotalPrice } = BillSlice.actions
+export const { setContact, setAddressInfo, setPaymentMethod, setTotalPrice } = BillSlice.actions
 export default BillSlice.reducer
