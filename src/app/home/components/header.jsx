@@ -1,6 +1,6 @@
 'use client'
 import React from "react";
-import { Top, Tab, TabItem } from "../HomeLayout.style";
+import { Top, Tab, TabItem } from "../../HomeLayout.style";
 import Link from 'next/link'
 
 function Header(props) {
@@ -24,17 +24,17 @@ function Header(props) {
         </span>
       </Top>
       <Tab>
-        <Link href="/recommend" >
+        <Link href="/home" >
           <TabItem>
             <span>推荐</span>
           </TabItem>
         </Link>
-        <Link href="/singers" >
+        <Link href="/home/singer" >
           <TabItem>
             <span>歌手</span>
           </TabItem>
         </Link>
-        <Link href="/rank" >
+        <Link href="/home/rank" >
           <TabItem>
             <span>排行榜</span>
           </TabItem>

@@ -1,4 +1,4 @@
-import Header from './header';
+import Header from "./components/header";
 
 export const metadata = {
   title: "Create Next App",
@@ -9,7 +9,7 @@ export default function RootLayout({ children }) {
   return (
     <div>
       <Header />
-      <div>{children}</div>
+      {children}
     </div>
   );
 }
