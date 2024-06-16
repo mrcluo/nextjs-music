@@ -9,14 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.4.2",
     "@reduxjs/toolkit": "^2.2.3",
+    "better-scroll": "^2.5.1",
+    "framer-motion": "^11.2.10",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-lazyload": "^3.2.1",
     "react-redux": "^9.1.2",
     "redux": "^5.0.1",
     "styled-components": "6.1.10",
-    "swiper": "^11.1.4",
+    "swiper": "^8.1.5",
     "swr": "^2.2.5"
   },
   "devDependencies": {

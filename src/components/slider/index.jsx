@@ -3,20 +3,25 @@
 import React, { useEffect, useState } from "react";
 import { SliderContainer } from "./style";
 import "swiper/css";
-import Swiper from "swiper";
+import "swiper/css/bundle";
+import Swiper, { Navigation, Pagination } from "swiper";
 function Slider(props) {
   const { bannerList } = props;
   const [swiperDOM, setSwiperDOM] = useState(null);
 
   useEffect(() => {
     if (bannerList.length && !swiperDOM) {
+      Swiper.use([Navigation, Pagination]);
       const swiperDOM = new Swiper(".slider-container", {
         loop: true,
         autoplay: {
           delay: 3000,
           disableOnInteraction: false,
         },
-        pagination: { el: ".swiper-pagination" },
+        pagination: {
+          el: ".swiper-pagination",
+          type: "bullets",
+        },
       });
       setSwiperDOM(swiperDOM);
     }

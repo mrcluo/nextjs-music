@@ -1,6 +1,7 @@
 import "./globals.css";
 import ReduxProvider from "./ReduxProvider";
 import StyledComponentsRegistry from "./registry";
+import { Providers } from "./providers";
 
 export default function RootLayout({ children }) {
   return (
@@ -8,7 +9,9 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning={true}>
       <body>
         <ReduxProvider>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          <Providers>
+            <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          </Providers>
         </ReduxProvider>
       </body>
     </html>
