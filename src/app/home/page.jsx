@@ -1,4 +1,4 @@
-import Main from "./components/main";
+import Main from "./recommend/main";
 import { Content } from "./style";
 export default async function Recommend(props) {
   const { songsCount = 0 } = props;
