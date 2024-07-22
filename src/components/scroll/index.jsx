@@ -45,7 +45,7 @@ const Scroll = forwardRef((props, ref) => {
 
   const scrollContaninerRef = useRef();
 
-  const { direction, onScroll, pullUp, pullDown } = props;
+  const { direction, refresh, onScroll, pullUp, pullDown } = props;
 
   let pullUpDebounce = useMemo(() => {
     return debounce(pullUp, 500);
@@ -108,6 +108,12 @@ const Scroll = forwardRef((props, ref) => {
       bScroll.off("touchEnd", handlePullDown);
     };
   }, [pullDown, pullDownDebounce, bScroll]);
+
+  useEffect(() => {
+    if (refresh && bScroll) {
+      bScroll.refresh();
+    }
+  });
 
   useImperativeHandle(ref, () => ({
     refresh() {

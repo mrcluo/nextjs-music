@@ -69,9 +69,11 @@ function Main(props) {
   return (
     <ListContainer play={songsCount}>
       <Scroll
+        direction={"vertical"}
         onScroll={forceCheck}
         pullUp={pullUp}
         pullDown={pullDown}
+        refresh={true}
         ref={scrollRef}
       >
         {renderSingerList()}
@@ -79,4 +81,5 @@ function Main(props) {
     </ListContainer>
   );
 }
+
 export default memo(Main);
