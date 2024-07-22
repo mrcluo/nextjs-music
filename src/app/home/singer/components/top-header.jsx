@@ -3,18 +3,18 @@
 import React, { memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { categoryTypes, alphaTypes } from "@/api/config";
-import { changeCategory } from "@/store/slices/singers";
+import useSingerMutation from "@/hooks/useSingerMutation";
 import { NavContainer } from "../style";
 import Horizen from "./horizen-item";
 function TopHeader() {
   const data = useSelector((state) => state.singers.singerDes);
   const dispatch = useDispatch();
   const { category, alpha } = data;
+  const { changeSinger } = useSingerMutation();
 
-  const handleUpdateCategory = (newVal) => {
+  const handleUpdateCategory = async (newVal) => {
     if (category === newVal) return;
-    dispatch(changeCategory(newVal));
-    // dispatch(getSingerList());
+    changeSinger(newVal, alpha.toLowerCase(), 0);
     // scrollRef.current.refresh();
   };
 

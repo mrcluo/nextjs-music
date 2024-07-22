@@ -1,3 +1,5 @@
+export const API_BASE_URL = "http://localhost:3100";
+
 //歌手种类
 export const categoryTypes = [
   {
