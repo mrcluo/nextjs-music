@@ -22,7 +22,7 @@ const List = styled.div`
 const ListItem = styled.span`
   flex: 0 0 auto;
   font-size: ${style["font-size-m"]};
-  padding: 5px 5px;
+  padding: 0 5px;
   border-radius: 10px;
   &.selected {
     color: ${style["theme-color"]};

@@ -5,15 +5,31 @@ import { useSelector, useDispatch } from "react-redux";
 import LazyLoad, { forceCheck } from "react-lazyload";
 import Scroll from "@/components/scroll";
 import musicImg from "@/assets/music.png";
-import { changeSingerList } from "@/store/slices/singers";
-import { ListContainer, List, ListItem } from "../style";
+import Loading from "@/components/loading";
+import {
+  changeSingerList,
+  changePullDownLoading,
+  changePullUpLoading,
+} from "@/store/slices/singers";
+import useSingerMutation from "@/hooks/useSingerMutation";
+import { ListContainer, List, ListItem, EnterLoading } from "../style";
 
 function Main(props) {
   const scrollRef = useRef(null);
   const data = useSelector((state) => state.singers.singerDes);
-  const { singerList, songsCount = 0 } = data;
+  const {
+    songsCount = 0,
+    singerList,
+    pullUpLoading,
+    pullDownLoading,
+    enterLoading,
+    category,
+    alpha,
+    listOffset,
+  } = data;
   const { initSingerList } = props;
   const dispatch = useDispatch();
+  const { changeSinger, loadMoreSinger } = useSingerMutation();
 
   useEffect(() => {
     dispatch(changeSingerList(initSingerList));
@@ -21,9 +37,13 @@ function Main(props) {
 
   const pullUp = () => {
     console.log("到底部了");
+    dispatch(changePullUpLoading(true));
+    loadMoreSinger(category, alpha, listOffset);
   };
   const pullDown = () => {
     console.log("到顶部了");
+    dispatch(changePullDownLoading(true));
+    changeSinger(category, alpha, 0);
   };
 
   const enterDetail = (id) => {
@@ -67,18 +87,27 @@ function Main(props) {
     );
   };
   return (
-    <ListContainer play={songsCount}>
-      <Scroll
-        direction={"vertical"}
-        onScroll={forceCheck}
-        pullUp={pullUp}
-        pullDown={pullDown}
-        refresh={true}
-        ref={scrollRef}
-      >
-        {renderSingerList()}
-      </Scroll>
-    </ListContainer>
+    <>
+      <ListContainer play={songsCount}>
+        <Scroll
+          direction={"vertical"}
+          refresh={true}
+          ref={scrollRef}
+          pullUpLoading={pullUpLoading}
+          pullDownLoading={pullDownLoading}
+          onScroll={forceCheck}
+          pullUp={pullUp}
+          pullDown={pullDown}
+        >
+          {renderSingerList()}
+        </Scroll>
+      </ListContainer>
+      {enterLoading ? (
+        <EnterLoading>
+          <Loading></Loading>
+        </EnterLoading>
+      ) : null}
+    </>
   );
 }
 

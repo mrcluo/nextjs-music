@@ -45,7 +45,9 @@ const Scroll = forwardRef((props, ref) => {
 
   const scrollContaninerRef = useRef();
 
-  const { direction, refresh, onScroll, pullUp, pullDown } = props;
+  const { direction, refresh, pullUpLoading, pullDownLoading } = props;
+
+  const { onScroll, pullUp, pullDown } = props;
 
   let pullUpDebounce = useMemo(() => {
     return debounce(pullUp, 500);
@@ -128,8 +130,12 @@ const Scroll = forwardRef((props, ref) => {
       }
     },
   }));
-  const PullUpdisplayStyle = { display: "" };
-  const PullDowndisplayStyle = { display: "none" };
+  const PullUpdisplayStyle = pullUpLoading
+    ? { display: "" }
+    : { display: "none" };
+  const PullDowndisplayStyle = pullDownLoading
+    ? { display: "" }
+    : { display: "none" };
   return (
     <ScrollContainer ref={scrollContaninerRef}>
       {props.children}

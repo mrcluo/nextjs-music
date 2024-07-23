@@ -9,7 +9,7 @@ export const SingersSlice = createSlice({
       category: "",
       alpha: "",
       singerList: [],
-      enterLoading: true,
+      enterLoading: false,
       pullUpLoading: false,
       pullDownLoading: false,
       listOffset: 0, // 请求列表的偏移不是page，是个数
@@ -29,13 +29,36 @@ export const SingersSlice = createSlice({
     changeCategory: (state, action) => {
       state.singerDes = { ...state.singerDes, category: action.payload };
     },
+    changeAlpha: (state, action) => {
+      state.singerDes = { ...state.singerDes, alpha: action.payload };
+    },
     changeSingerList: (state, action) => {
-      console.log("🚀 ~ action:", action);
       state.singerDes = { ...state.singerDes, singerList: action.payload };
+    },
+    changePullUpLoading: (state, action) => {
+      state.singerDes = { ...state.singerDes, pullUpLoading: action.payload };
+    },
+    changePullDownLoading: (state, action) => {
+      state.singerDes = { ...state.singerDes, pullDownLoading: action.payload };
+    },
+    changeEnterLoading: (state, action) => {
+      state.singerDes = { ...state.singerDes, enterLoading: action.payload };
+    },
+    changeListOffset: (state, action) => {
+      state.singerDes = { ...state.singerDes, listOffset: action.payload };
     },
   },
 });
 // 每个 case reducer 函数会生成对应的 Action creators
-export const { increment, setContact, changeCategory, changeSingerList } =
-  SingersSlice.actions;
+export const {
+  increment,
+  setContact,
+  changeCategory,
+  changeAlpha,
+  changeSingerList,
+  changePullUpLoading,
+  changePullDownLoading,
+  changeEnterLoading,
+  changeListOffset,
+} = SingersSlice.actions;
 export default SingersSlice.reducer;
