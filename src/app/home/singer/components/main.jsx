@@ -3,6 +3,7 @@
 import React, { memo, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import LazyLoad, { forceCheck } from "react-lazyload";
+import Link from "next/link";
 import Scroll from "@/components/scroll";
 import musicImg from "@/assets/music.png";
 import Loading from "@/components/loading";
@@ -46,41 +47,38 @@ function Main(props) {
     changeSinger(category, alpha, 0);
   };
 
-  const enterDetail = (id) => {
-    console.log("🚀 ~ enterDetail ~ id:", id);
-    // props.history.push(`/singers/${id}`);
-  };
-
   const renderSingerList = () => {
     return (
       <List>
         {singerList.map((item, index) => {
           return (
-            <ListItem
+            <Link
               key={item.accountId + "" + index}
-              onClick={() => enterDetail(item.id)}
+              href={`/home/singer/${item.id}`}
             >
-              <div className="img_wrapper">
-                <LazyLoad
-                  placeholder={
+              <ListItem>
+                <div className="img_wrapper">
+                  <LazyLoad
+                    placeholder={
+                      <img
+                        width="100%"
+                        height="100%"
+                        src={musicImg.src}
+                        alt="music"
+                      />
+                    }
+                  >
                     <img
+                      src={`${item.picUrl}?param=300x300`}
                       width="100%"
                       height="100%"
-                      src={musicImg.src}
                       alt="music"
                     />
-                  }
-                >
-                  <img
-                    src={`${item.picUrl}?param=300x300`}
-                    width="100%"
-                    height="100%"
-                    alt="music"
-                  />
-                </LazyLoad>
-              </div>
-              <span className="name">{item.name}</span>
-            </ListItem>
+                  </LazyLoad>
+                </div>
+                <span className="name">{item.name}</span>
+              </ListItem>
+            </Link>
           );
         })}
       </List>
