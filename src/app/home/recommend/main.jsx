@@ -1,8 +1,8 @@
 "use client";
-import Slider from "@/components/slider";
-import RecommendList from "./recommendList";
-import Scroll from "@/components/scroll";
 import { forceCheck } from "react-lazyload";
+import Slider from "@/components/slider";
+import Scroll from "@/components/scroll";
+import RecommendList from "../components/recommendList";
 export default function Main(props) {
   const { bannerList, recommendList } = props;
   const pullUp = () => {

@@ -1,7 +1,9 @@
-import {configureStore} from '@reduxjs/toolkit'
-import bill from './slices/bill'
+import { configureStore } from "@reduxjs/toolkit";
+import singers from "./slices/singers";
 
-const store = configureStore({reducer: {
-    bill
-}})
-export default store
+const store = configureStore({
+  reducer: {
+    singers,
+  },
+});
+export default store;
