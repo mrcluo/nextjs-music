@@ -1,0 +1,19 @@
+# docker-compose.yml
+version: "3.1"
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=cluonote
+      - POSTGRES_PASSWORD=EASYlife.520
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

@@ -1,4 +1,5 @@
 "use client";
+// 集成nextui
 
 import { NextUIProvider } from "@nextui-org/react";
 
