@@ -36,7 +36,7 @@ export const ImgWrapper = styled.div`
   height: 0;
   padding-top: 75%;
   transform-origin: top;
-  background: url(${(props) => props.bgurl});
+  background: url(${(props) => props?.bgurl});
   background-size: cover;
   z-index: 50;
   .filter {
@@ -89,6 +89,7 @@ export const SongListWrapper = styled.div`
     position: absolute;
     left: 0;
     width: 100%;
+    overflow: visible;
   }
 `;
 export const BgLayer = styled.div`

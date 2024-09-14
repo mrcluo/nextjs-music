@@ -67,7 +67,7 @@ export const EnterLoading = styled.div`
 
 export const SongList = styled.div`
   border-radius: 10px;
-  opacity: 0.98;
+  background: #fff;
   ${(props) =>
     props.showBackground
       ? `background: ${style["highlight-background-color"]}`

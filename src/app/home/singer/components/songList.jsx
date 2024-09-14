@@ -3,7 +3,7 @@ import { getName } from "@/utils";
 import { SongList, SongItem } from "../style";
 
 function SongsList(props) {
-  const { songs } = props;
+  const { songs = [] } = props;
 
   const selectItem = (e, index) => {
     console.log("🚀 ~ selectItem ~ e, index:", e, index);
@@ -12,24 +12,25 @@ function SongsList(props) {
     // changeCurrentIndexDispatch(index);
     // musicAnimation(e.nativeEvent.clientX, e.nativeEvent.clientY);
   };
-  let songList = (list) => {
-    let res = [];
-    for (let i = 0; i < list.length; i++) {
-      let item = list[i];
-      res.push(
-        <li key={item.id} onClick={(e) => selectItem(e, i)}>
-          <span className="index">{i + 1}</span>
-          <div className="info">
-            <span>{item.name}</span>
-            <span>
-              {item.ar ? getName(item.ar) : getName(item.artists)} -{" "}
-              {item.al ? item.al.name : item.album.name}
-            </span>
-          </div>
-        </li>
-      );
-    }
-    return res;
+  const renderSongList = () => {
+    return (
+      <SongItem>
+        {songs.map((item, i) => {
+          return (
+            <li key={item.id} onClick={(e) => selectItem(e, i)}>
+              <span className="index">{i + 1}</span>
+              <div className="info">
+                <span>{item.name}</span>
+                <span>
+                  {item.ar ? getName(item.ar) : getName(item.artists)} -{" "}
+                  {item.al ? item.al.name : item.album.name}
+                </span>
+              </div>
+            </li>
+          );
+        })}
+      </SongItem>
+    );
   };
   return (
     <SongList showBackground={props.showBackground}>
@@ -41,7 +42,7 @@ function SongsList(props) {
           </span>
         </div>
       </div>
-      <SongItem>{songList(songs)}</SongItem>
+      {renderSongList()}
     </SongList>
   );
 }

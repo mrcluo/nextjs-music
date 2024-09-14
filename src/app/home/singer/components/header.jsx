@@ -21,10 +21,10 @@ const HeaderContainer = styled.div`
     font-weight: 700;
   }
 `;
-function Header(props) {
+function Header(props, ref) {
   const { handleClick, title } = props;
   return (
-    <HeaderContainer>
+    <HeaderContainer ref={ref}>
       <i className="iconfont back" onClick={handleClick}>
         &#xe655;
       </i>
@@ -32,4 +32,4 @@ function Header(props) {
     </HeaderContainer>
   );
 }
-export default React.memo(Header);
+export default React.memo(React.forwardRef(Header));
