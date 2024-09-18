@@ -20,3 +20,40 @@ export const getName = (list) => {
   });
   return str;
 };
+
+//判断一个对象是否为空对象
+export const isEmptyObject = (obj) => !obj || Object.keys(obj).length === 0;
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+// 随机算法
+export function shuffle(arr) {
+  let new_arr = [];
+  arr.forEach((item) => {
+    new_arr.push(item);
+  });
+  for (let i = 0; i < new_arr.length; i++) {
+    let j = getRandomInt(0, i);
+    let t = new_arr[i];
+    new_arr[i] = new_arr[j];
+    new_arr[j] = t;
+  }
+  return new_arr;
+}
+
+// 找到当前的歌曲索引
+export const findIndex = (song, list) => {
+  return list.findIndex((item) => {
+    return song.id === item.id;
+  });
+};
+
+//拼接出歌曲的url链接
+export const getSongUrl = (id) => {
+  return `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
+};
+//除去手机号码的空格符号
+
+export const trimPhone = (val) => val.replace(/(^\s+)|(\s+$)|\s+/g, "");

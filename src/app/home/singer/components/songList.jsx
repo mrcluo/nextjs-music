@@ -1,15 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { getName } from "@/utils";
+import {
+  changeCurrentIndex,
+  changePlayList,
+  changeSequencePlayList,
+} from "@/store/slices/songs";
 import { SongList, SongItem } from "../style";
 
 function SongsList(props) {
   const { songs = [] } = props;
+  const dispatch = useDispatch();
 
   const selectItem = (e, index) => {
-    console.log("🚀 ~ selectItem ~ e, index:", e, index);
-    // changePlayListDispatch(songs);
-    // changeSequecePlayListDispatch(songs);
-    // changeCurrentIndexDispatch(index);
+    dispatch(changeCurrentIndex(index));
+    dispatch(changePlayList(songs));
+    dispatch(changeSequencePlayList(songs));
     // musicAnimation(e.nativeEvent.clientX, e.nativeEvent.clientY);
   };
   const renderSongList = () => {

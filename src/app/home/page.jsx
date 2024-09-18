@@ -1,4 +1,4 @@
-import Main from "./recommend/main";
+import RecommendMain from "./recommend/main";
 import { Content } from "./style";
 export default async function Recommend(props) {
   const { songsCount = 0 } = props;
@@ -20,7 +20,7 @@ export default async function Recommend(props) {
   const recommendList = await getrecommendData();
   return (
     <Content play={songsCount}>
-      <Main
+      <RecommendMain
         bannerList={bannerList?.banners || []}
         recommendList={recommendList?.result || []}
       />

@@ -1,4 +1,5 @@
 import Header from "./components/header";
+import Player from "./components/player";
 
 export const metadata = {
   title: "Create Next App",
@@ -10,6 +11,7 @@ export default function HomeLayout({ children }) {
     <div>
       <Header />
       {children}
+      <Player />
     </div>
   );
 }
