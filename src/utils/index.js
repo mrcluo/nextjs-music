@@ -57,3 +57,12 @@ export const getSongUrl = (id) => {
 //除去手机号码的空格符号
 
 export const trimPhone = (val) => val.replace(/(^\s+)|(\s+$)|\s+/g, "");
+
+//处理数据，找出第一个没有歌名的排行榜的索引
+export const filterIndex = (rankList) => {
+  for (let i = 0; i < rankList.length - 1; i++) {
+    if (rankList[i].tracks.length && !rankList[i + 1].tracks.length) {
+      return i + 1;
+    }
+  }
+};

@@ -1,11 +1,12 @@
 import useSWR from "swr";
 import { API_BASE_URL } from "@/api/config";
-export default function useGetSingerSongs(id) {
+export default function useGetAlbums(id) {
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
-    `${API_BASE_URL}/artists?id=${id}`,
+    `${API_BASE_URL}/playlist/detail?id=${id}`,
     fetcher
   );
+  console.log("🚀 ~ useGetAlbums ~ id:", data);
   return {
     data,
     isLoading,

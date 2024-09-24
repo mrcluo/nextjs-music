@@ -1,11 +1,13 @@
-import prisma from "@/lib/db";
+import Main from "./components/main";
 
 export default async function Rank() {
-  const data = await prisma.user.findMany();
-  console.log(222222, data);
-  return (
-    <div>
-      <h1>Rank Page</h1>
-    </div>
-  );
+  const getData = async () => {
+    const res = await fetch(`http://localhost:3100/toplist/detail`);
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    return res.json();
+  };
+  const data = await getData();
+  return <Main rankList={data?.list || []} />;
 }

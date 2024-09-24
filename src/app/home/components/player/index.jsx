@@ -34,7 +34,6 @@ function Player() {
   let percent = isNaN(currentTime / duration) ? 0 : currentTime / duration;
 
   useEffect(() => {
-    console.log("🚀 ~ useEffect ~ currentIndex:", currentIndex);
     if (
       !playList.length ||
       currentIndex === -1 ||

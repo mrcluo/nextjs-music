@@ -5,7 +5,7 @@ import { CSSTransition } from "react-transition-group";
 import Loading from "@/components/loading";
 import Scroll from "@/components/scroll";
 import useGetSingerSongs from "@/hooks/useGetSingerSongs";
-import Header from "../components/header";
+import Header from "@/components/header";
 import SongsList from "../components/songList";
 import { Container, CollectButton, SongListWrapper, ImgWrapper } from "./style";
 import { EnterLoading } from "../style";
