@@ -33,7 +33,7 @@ function Rank(props) {
               key={`${item.coverImgId}${index}`}
               href={`/home/rank/${item.id}`}
             >
-              <ListItem tracks={item.tracks} onClick={() => enterDetail(item)}>
+              <ListItem tracks={item.tracks}>
                 <div className="img_wrapper">
                   <img src={item.coverImgUrl} alt="" />
                   <div className="decorate"></div>

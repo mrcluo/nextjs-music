@@ -41,6 +41,7 @@ export const ListItem = styled.div`
     padding-bottom: 100%;
     .play_count {
       z-index: 1;
+      display: flex;
       position: absolute;
       right: 2px;
       top: 2px;

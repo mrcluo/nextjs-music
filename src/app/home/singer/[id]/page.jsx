@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState, useCallback, useRef } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { CSSTransition } from "react-transition-group";
 import Loading from "@/components/loading";
 import Scroll from "@/components/scroll";
@@ -12,6 +12,7 @@ import { EnterLoading } from "../style";
 
 function Singer() {
   const route = useParams();
+  const router = useRouter();
   const [showStatus, setShowStatus] = useState(true);
   const { data = {}, isLoading } = useGetSingerSongs(route?.id);
   const ImgWrapperRef = useRef();
@@ -74,6 +75,7 @@ function Singer() {
       classNames="fly"
       appear={true}
       unmountOnExit
+      onExited={() => router.back()}
     >
       <Container>
         <Header

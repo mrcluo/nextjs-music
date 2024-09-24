@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState, useCallback, useRef } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { CSSTransition } from "react-transition-group";
 import Loading from "@/components/loading";
 import Scroll from "@/components/scroll";
+import SvgIcon from "@/components/svg-icon";
 import useGetAlbums from "@/hooks/useGetAlbums";
 import Header from "@/components/header";
 import style from "@/assets/global-style";
@@ -13,6 +14,7 @@ import { Container, SongListWrapper, TopDesc } from "./style";
 
 function Rank() {
   const route = useParams();
+  const router = useRouter();
   const [showStatus, setShowStatus] = useState(true);
   const { data = {}, isLoading } = useGetAlbums(route?.id);
   const ImgWrapperRef = useRef();
@@ -62,7 +64,7 @@ function Rank() {
           <div className="decorate"></div>
           <img src={data?.playlist?.coverImgUrl} alt="" />
           <div className="play_count">
-            <i className="iconfont play">&#xe885;</i>
+            <SvgIcon svgClass={"play"} iconClass={"icon-24gl-headphones"} />
             <span className="count">
               {Math.floor(data?.playlist?.subscribedCount / 1000) / 10}万
             </span>
@@ -88,6 +90,7 @@ function Rank() {
       classNames="fly"
       appear={true}
       unmountOnExit
+      onExited={() => router.back()}
     >
       <Container>
         <Header ref={HeaderRef} handleClick={setShowStatusFalse} title="歌单" />

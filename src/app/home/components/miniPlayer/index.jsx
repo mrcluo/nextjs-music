@@ -3,6 +3,7 @@
 import React, { useRef, useCallback } from "react";
 import { CSSTransition } from "react-transition-group";
 import ProgressCircle from "@/components/progress-circle";
+import SvgIcon from "@/components/svg-icon";
 import { getName } from "@/utils";
 import { MiniPlayerContainer } from "./style";
 function MiniPlayer(props) {
@@ -60,20 +61,20 @@ function MiniPlayer(props) {
                 className="icon-mini iconfont icon-pause"
                 onClick={(e) => clickPlaying(e, false)}
               >
-                &#xe650;
+                <SvgIcon iconClass="icon-bofang" />
               </i>
             ) : (
               <i
                 className="icon-mini iconfont icon-play"
                 onClick={(e) => clickPlaying(e, true)}
               >
-                &#xe61e;
+                <SvgIcon iconClass="icon-bofang" />
               </i>
             )}
           </ProgressCircle>
         </div>
         <div className="control" onClick={handleTogglePlayList}>
-          <i className="iconfont">&#xe640;</i>
+          <SvgIcon svgClass="iconfont" iconClass="icon-shengyin_yinlecaidan" />
         </div>
       </MiniPlayerContainer>
     </CSSTransition>

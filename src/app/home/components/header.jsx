@@ -1,11 +1,10 @@
-'use client'
+"use client";
 import React from "react";
+import Link from "next/link";
+import SvgIcon from "@/components/svg-icon";
 import { Top, Tab, TabItem } from "../../HomeLayout.style";
-import Link from 'next/link'
 
-function Header(props) {
-  const { route } = props;
-
+function Header() {
   return (
     <div>
       <Top>
@@ -13,28 +12,28 @@ function Header(props) {
           className="iconfont menu"
           onClick={() => alert("用户中心正在开发中，敬请期待:)")}
         >
-          &#xe65c;
+          <SvgIcon iconClass={"icon-caidan"} />
         </span>
         <span className="title">云音悦</span>
         <span
           className="iconfont search"
-          onClick={() => props.history.push("/search")}
+          onClick={() => alert("用户中心正在开发中，敬请期待:)")}
         >
-          &#xe62b;
+          <SvgIcon iconClass={"icon-sousuo2"} />
         </span>
       </Top>
       <Tab>
-        <Link href="/home" >
+        <Link href="/home">
           <TabItem>
             <span>推荐</span>
           </TabItem>
         </Link>
-        <Link href="/home/singer" >
+        <Link href="/home/singer">
           <TabItem>
             <span>歌手</span>
           </TabItem>
         </Link>
-        <Link href="/home/rank" >
+        <Link href="/home/rank">
           <TabItem>
             <span>排行榜</span>
           </TabItem>

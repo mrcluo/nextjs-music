@@ -151,6 +151,12 @@ export const TopDesc = styled.div`
       font-size: ${style["font-size-s"]};
       line-height: 15px;
       color: ${style["font-color-light"]};
+      display: flex;
+      padding-right: 10px;
+      padding-top: 10px;
+      .svg-class {
+        margin-right: 4px;
+      }
       .play {
         vertical-align: top;
       }

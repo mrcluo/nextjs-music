@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import style from "@/assets/global-style";
+import SvgIcon from "@/components/svg-icon";
 const HeaderContainer = styled.div`
   position: fixed;
   padding: 5px 10px;
@@ -15,6 +16,7 @@ const HeaderContainer = styled.div`
     margin-right: 5px;
     font-size: 20px;
     width: 20px;
+    height: 40px;
   }
   > h1 {
     font-size: ${style["font-size-l"]};
@@ -26,7 +28,7 @@ function Header(props, ref) {
   return (
     <HeaderContainer ref={ref}>
       <i className="iconfont back" onClick={handleClick}>
-        &#xe655;
+        <SvgIcon svgClass={"back"} iconClass={"icon-fanhui"} />
       </i>
       <h1>{title}</h1>
     </HeaderContainer>

@@ -66,6 +66,9 @@ export const ListHeader = styled.div`
       ${style.extendClick()}
       font-size: ${style["font-size-l"]};
     }
+    .change-mode {
+      display: flex;
+    }
   }
 `;
 export const ScrollWrapper = styled.div`

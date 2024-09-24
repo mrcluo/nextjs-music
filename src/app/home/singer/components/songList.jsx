@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import SvgIcon from "@/components/svg-icon";
 import { getName } from "@/utils";
 import {
   changeCurrentIndex,
@@ -42,7 +43,7 @@ function SongsList(props) {
     <SongList showBackground={props.showBackground}>
       <div className="first_line">
         <div className="play_all" onClick={(e) => selectItem(e, 0)}>
-          <i className="iconfont">&#xe6e3;</i>
+          <SvgIcon iconClass={"icon-bofang1"} />
           <span>
             播放全部 <span className="sum">(共{songs.length}首)</span>
           </span>

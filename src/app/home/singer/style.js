@@ -80,9 +80,13 @@ export const SongList = styled.div`
     justify-content: space-between;
     border-bottom: 1px solid ${style["border-color"]};
     .play_all {
-      display: inline-block;
+      display: flex;
+      align-items: center;
       line-height: 24px;
       color: ${style["font-color-desc"]};
+      .svg-class {
+        margin-right: 10px;
+      }
       .iconfont {
         font-size: 24px;
         margin-right: 10px;

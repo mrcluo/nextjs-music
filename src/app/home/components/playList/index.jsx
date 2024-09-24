@@ -5,6 +5,7 @@ import { CSSTransition } from "react-transition-group";
 import { useSelector, useDispatch } from "react-redux";
 import Scroll from "@/components/scroll";
 import Confirm from "@/components/confirm";
+import SvgIcon from "@/components/svg-icon";
 import { shuffle, findIndex, getName } from "@/utils";
 import { playMode } from "@/api/config";
 import {
@@ -82,25 +83,19 @@ function PlayList() {
   const getPlayMode = () => {
     let content, text;
     if (mode === playMode.sequence) {
-      content = "&#xe625;";
+      content = "icon-inturn";
       text = "顺序播放";
     } else if (mode === playMode.loop) {
-      content = "&#xe653;";
+      content = "icon-danquxunhuan";
       text = "单曲循环";
     } else {
-      content = "&#xe61b;";
+      content = "icon-suijibofang";
       text = "随机播放";
     }
     return (
-      <div>
-        <i
-          className="iconfont"
-          onClick={(e) => changeMode(e)}
-          dangerouslySetInnerHTML={{ __html: content }}
-        ></i>
-        <span className="text" onClick={(e) => changeMode(e)}>
-          {text}
-        </span>
+      <div className="change-mode" onClick={(e) => changeMode(e)}>
+        <SvgIcon svgClass="iconfont" iconClass={content} />
+        <span className="text">{text}</span>
       </div>
     );
   };
@@ -125,13 +120,10 @@ function PlayList() {
 
   const getCurrentIcon = (item) => {
     const current = currentSong.id === item.id;
-    const className = current ? "icon-play" : "";
-    const content = current ? "&#xe6e3;" : "";
-    return (
-      <i
-        className={`current iconfont ${className}`}
-        dangerouslySetInnerHTML={{ __html: content }}
-      ></i>
+    return current ? (
+      <SvgIcon svgClass="current iconfont icon-play" iconClass="icon-bofang1" />
+    ) : (
+      <SvgIcon svgClass="current iconfont " iconClass="" />
     );
   };
 
