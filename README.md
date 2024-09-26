@@ -48,6 +48,10 @@ export const API_BASE_URL = "http://localhost:3100";
 ![image](https://github.com/user-attachments/assets/1fa41bf9-fe2f-4c0d-b50f-046091fe4726)
 
 
+## 🙏🙏🙏 在线求Star
+
+如果您觉得这个项目还不错, 可以在 Github 上面帮我点个star, 支持一下作者
+
 ## 效果展示
 ![69399a6d444d22f313097b03ee0b6d9](https://github.com/user-attachments/assets/3e9013d6-910d-4982-99e9-e8eae076d4b7)
 
