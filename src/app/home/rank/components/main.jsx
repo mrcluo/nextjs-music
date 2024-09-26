@@ -8,7 +8,7 @@ import { filterIndex } from "@/utils";
 import { EnterLoading } from "../../singer/style";
 import { List, ListItem, SongList, Container } from "../style";
 function Rank(props) {
-  const { rankList, loading = false } = props;
+  const { rankList, loading = true } = props;
 
   const renderSongList = (list) => {
     return list.length ? (
@@ -53,18 +53,13 @@ function Rank(props) {
   let globalStartIndex = filterIndex(rankList);
   let officialList = rankList.slice(0, globalStartIndex);
   let globalList = rankList.slice(globalStartIndex);
-  let displayStyle = loading ? { display: "none" } : { display: "" };
   return (
     <Container>
       <Scroll direction={"vertical"} refresh={true}>
         <div>
-          <h1 className="offical" style={displayStyle}>
-            官方榜
-          </h1>
+          <h1 className="offical">官方榜</h1>
           {renderRankList(officialList)}
-          <h1 className="global" style={displayStyle}>
-            全球榜
-          </h1>
+          <h1 className="global">全球榜</h1>
           {renderRankList(globalList, true)}
           {loading ? (
             <EnterLoading>

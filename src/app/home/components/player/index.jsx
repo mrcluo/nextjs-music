@@ -51,6 +51,10 @@ function Player() {
     setCurrentTime(0);
     setDuration((current.dt / 1000) | 0); // 设置歌曲时长
   }, [currentIndex, playList]);
+
+  useEffect(() => {
+    playing ? audioRef.current.play() : audioRef.current.pause();
+  }, [playing]);
   const clickPlaying = (e, state) => {
     e.stopPropagation();
     dispatch(changePlaying(state));

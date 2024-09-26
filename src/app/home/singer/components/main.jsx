@@ -1,6 +1,6 @@
 "use client";
 
-import React, { memo, useRef, useEffect } from "react";
+import React, { memo, useRef, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import LazyLoad, { forceCheck } from "react-lazyload";
 import Link from "next/link";
@@ -23,7 +23,6 @@ function Main(props) {
     singerList,
     pullUpLoading,
     pullDownLoading,
-    enterLoading,
     category,
     alpha,
     listOffset,
@@ -31,9 +30,11 @@ function Main(props) {
   const { initSingerList } = props;
   const dispatch = useDispatch();
   const { changeSinger, loadMoreSinger } = useSingerMutation();
+  const [enterLoading, setEnterLoading] = useState(true);
 
   useEffect(() => {
     dispatch(changeSingerList(initSingerList));
+    setEnterLoading(false);
   }, [initSingerList]);
 
   const pullUp = () => {

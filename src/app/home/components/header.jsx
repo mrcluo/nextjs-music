@@ -1,10 +1,16 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import SvgIcon from "@/components/svg-icon";
 import { Top, Tab, TabItem } from "../../HomeLayout.style";
 
 function Header() {
+  const pathName = usePathname();
+  const pathCheck = (path) => {
+    const reg = new RegExp(`/(${path})$`);
+    return reg.test(pathName) ? "selected" : "";
+  };
   return (
     <div>
       <Top>
@@ -25,17 +31,17 @@ function Header() {
       <Tab>
         <Link href="/home">
           <TabItem>
-            <span>推荐</span>
+            <span className={pathCheck("home")}>推荐</span>
           </TabItem>
         </Link>
         <Link href="/home/singer">
           <TabItem>
-            <span>歌手</span>
+            <span className={pathCheck("singer")}>歌手</span>
           </TabItem>
         </Link>
         <Link href="/home/rank">
           <TabItem>
-            <span>排行榜</span>
+            <span className={pathCheck("rank")}>排行榜</span>
           </TabItem>
         </Link>
       </Tab>

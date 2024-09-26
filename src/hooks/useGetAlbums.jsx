@@ -6,7 +6,6 @@ export default function useGetAlbums(id) {
     `${API_BASE_URL}/playlist/detail?id=${id}`,
     fetcher
   );
-  console.log("🚀 ~ useGetAlbums ~ id:", data);
   return {
     data,
     isLoading,

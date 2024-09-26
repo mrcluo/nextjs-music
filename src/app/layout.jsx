@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
       <head>
         <script
           defer={true}
-          src={"http://at.alicdn.com/t/c/font_824912_ur9s5lypn.js"}
+          src={"http://at.alicdn.com/t/c/font_824912_i1b86ti0p3.js"}
         />
       </head>
       <body>

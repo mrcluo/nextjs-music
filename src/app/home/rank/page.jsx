@@ -9,5 +9,5 @@ export default async function Rank() {
     return res.json();
   };
   const data = await getData();
-  return <Main rankList={data?.list || []} />;
+  return <Main rankList={data?.list || []} loading={!!data?.list.length} />;
 }

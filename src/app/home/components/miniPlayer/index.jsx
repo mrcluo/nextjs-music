@@ -8,7 +8,7 @@ import { getName } from "@/utils";
 import { MiniPlayerContainer } from "./style";
 function MiniPlayer(props) {
   const { full, song, playing, percent } = props;
-  const { clickPlaying, setFullScreen, togglePlayList } = props;
+  const { clickPlaying, togglePlayList } = props;
 
   const miniPlayerRef = useRef();
   const miniWrapperRef = useRef();
@@ -34,10 +34,7 @@ function MiniPlayer(props) {
         miniPlayerRef.current.style.display = "none";
       }}
     >
-      <MiniPlayerContainer
-        ref={miniPlayerRef}
-        onClick={() => setFullScreen(true)}
-      >
+      <MiniPlayerContainer ref={miniPlayerRef}>
         <div className="icon">
           <div className="imgWrapper" ref={miniWrapperRef}>
             <img
@@ -61,7 +58,7 @@ function MiniPlayer(props) {
                 className="icon-mini iconfont icon-pause"
                 onClick={(e) => clickPlaying(e, false)}
               >
-                <SvgIcon iconClass="icon-bofang" />
+                <SvgIcon iconClass="icon-zanting" />
               </i>
             ) : (
               <i
