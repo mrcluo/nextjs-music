@@ -4,7 +4,6 @@
 **Nextjs** + **App Router**路由模式 + 客户端**SWR**仿**网易云音乐**的WebApp项目实战
 
 
-
 ## 本地运行
 
 run the development server:
@@ -37,6 +36,16 @@ export const API_BASE_URL = "http://localhost:3100";
 
 
 然后**API_BASE_URL**放你启动的**服务地址**就行了
+
+## Prisma
+
+项目集成了**Prisma** + **Postgresql**可以从数据库中获取数据展示在页面上
+
+不过需要小伙伴本地搭建个数据库
+
+前端部分：
+
+![image](https://github.com/user-attachments/assets/1fa41bf9-fe2f-4c0d-b50f-046091fe4726)
 
 
 ## 效果展示
