@@ -1,8 +1,9 @@
+import { API_BASE_URL } from "@/api/config";
 import Main from "./components/main";
 
 export default async function Rank() {
   const getData = async () => {
-    const res = await fetch(`http://localhost:3100/toplist/detail`);
+    const res = await fetch(`${API_BASE_URL}/toplist/detail`);
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }

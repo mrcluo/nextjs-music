@@ -16,7 +16,6 @@ function Singer() {
   const [showStatus, setShowStatus] = useState(true);
   const { data = {}, isLoading } = useGetSingerSongs(route?.id);
   const ImgWrapperRef = useRef();
-  const CollectButtonRef = useRef();
   const SongScrollWrapperRef = useRef();
   const ScrollRef = useRef();
   const HeaderRef = useRef();
@@ -40,7 +39,6 @@ function Singer() {
     let height = InitialHeight.current;
     const newY = pos.y;
     const imageDOM = ImgWrapperRef.current;
-    const buttonDOM = CollectButtonRef.current;
     const headerDOM = HeaderRef.current;
     const minScrollY = -(height - OFFSET) + HEADER_HEIGHT;
 
@@ -50,14 +48,11 @@ function Singer() {
     if (newY > 0) {
       //处理往下拉的情况,效果：图片放大，按钮跟着偏移
       imageDOM.style["transform"] = `scale(${1 + percent})`;
-      buttonDOM.style["transform"] = `translate3d(0, ${newY}px, 0)`;
     } else if (newY >= minScrollY) {
       //往上滑动，但是还没超过Header部分
       imageDOM.style.paddingTop = "75%";
       imageDOM.style.height = 0;
       imageDOM.style.zIndex = -1;
-      buttonDOM.style["transform"] = `translate3d(0, ${newY}px, 0)`;
-      buttonDOM.style["opacity"] = `${1 - percent * 2}`;
     } else if (newY < minScrollY) {
       //防止溢出的歌单内容遮住Header
       headerDOM.style.zIndex = 100;
@@ -86,10 +81,6 @@ function Singer() {
         <ImgWrapper ref={ImgWrapperRef} bgurl={data?.artist?.picUrl}>
           <div className="filter"></div>
         </ImgWrapper>
-        <CollectButton ref={CollectButtonRef}>
-          <i className="iconfont">&#xe62d;</i>
-          <span className="text">收藏</span>
-        </CollectButton>
         <SongListWrapper
           ref={SongScrollWrapperRef}
           play={data?.hotSongs?.length}

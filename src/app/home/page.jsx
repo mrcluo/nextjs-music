@@ -1,16 +1,17 @@
+import { API_BASE_URL } from "@/api/config";
 import RecommendMain from "./recommend/main";
 import { Content } from "./style";
 export default async function Recommend(props) {
   const { songsCount = 0 } = props;
   const getData = async () => {
-    const res = await fetch("http://localhost:3100/banner");
+    const res = await fetch(`${API_BASE_URL}/banner`);
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
     return res.json();
   };
   const getrecommendData = async () => {
-    const res = await fetch("http://localhost:3100/personalized");
+    const res = await fetch(`${API_BASE_URL}/personalized`);
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
